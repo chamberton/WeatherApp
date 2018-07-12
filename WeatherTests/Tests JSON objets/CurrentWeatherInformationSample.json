@@ -1,0 +1,40 @@
+{
+    "coord": {
+        "lon": 20,
+        "lat": 20
+    },
+    "weather": [
+                {
+                "id": 800,
+                "main": "Clear",
+                "description": "clear sky",
+                "icon": "01d"
+                }
+                ],
+    "base": "stations",
+    "main": {
+        "temp": 39.26,
+        "pressure": 960.97,
+        "humidity": 13,
+        "temp_min": 39.26,
+        "temp_max": 39.26,
+        "sea_level": 1021.36,
+        "grnd_level": 960.97
+    },
+    "wind": {
+        "speed": 2.86,
+        "deg": 29.5008
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1531138719,
+    "sys": {
+        "message": 0.0063,
+        "sunrise": 1531109222,
+        "sunset": 1531157007
+    },
+    "id": 0,
+    "name": "",
+    "cod": 200
+}
