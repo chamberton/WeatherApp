@@ -20,7 +20,7 @@ struct FiveDayWeatherForecast: Codable, Equatable {
             return $0.dt > today && secondsFromToday>secondsInADay*Double(days-1) && secondsFromToday<24*3600*Double(days)
         }
         let weatherInformationForNoon = filteredWeatherInformationsByDate.filter {
-            return Calendar.current.component(.hour, from: $0.dt) == 12
+            return Calendar.current.component(.hour, from: $0.dt) == 11
         }
         return weatherInformationForNoon.first ?? filteredWeatherInformationsByDate.first
     }
