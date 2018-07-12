@@ -11,7 +11,7 @@ import Foundation
 
 struct FiveDayWeatherForecast: Codable, Equatable {
     var list: [WeatherInformationByDate]
-    let secondsInADay = Double(24*2600)
+    let secondsInADay = Double(24*3600)
     
     public func noonForecast(numberOfDaysAfter days: Int) -> WeatherInformationByDate? {
         let today = Date()

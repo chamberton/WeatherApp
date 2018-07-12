@@ -19,7 +19,7 @@ class WeatherForecastInteractor: DependencyInjector {
             let currentWeatherInformation = weatherForecastCache.currentWeatherInformation(for: location) {
             return currentWeatherInformation
         }
-        let currentWeatherRequest = CurrentWeatherRequest(latitude: location.coordinate.latitude, longitude: location.coordinate.latitude)
+        let currentWeatherRequest = CurrentWeatherRequest(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let weatherInformationResponse = weatherForecastService.fetchCurrentWeatherInformation(request: currentWeatherRequest)
         
         guard let currentWeatherInformation = weatherInformationResponse.responseObject else {
@@ -40,7 +40,7 @@ class WeatherForecastInteractor: DependencyInjector {
                 return cachedFiveDaysForecast
             }
         }
-        let fiveDayForecastRequest = FiveDayWeatherForecastRequest(latitude: location.coordinate.latitude, longitude: location.coordinate.latitude)
+        let fiveDayForecastRequest = FiveDayWeatherForecastRequest(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         let fiveDayForecastResponse = weatherForecastService.fetchFiveDayWeatherForecast(request: fiveDayForecastRequest)
         
         guard let fiveDayForecast = fiveDayForecastResponse.responseObject else {
