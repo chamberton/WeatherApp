@@ -17,7 +17,7 @@ class WeatherForecastCacheImplementation: AbstractCache, WeatherForecastCache {
         guard let lastLocation = self.lastLocation else {
             return nil
         }
-        guard lastLocation.distance(from: location) < constantWeatherRadiusInMeters else {
+        guard lastLocation.distance(from: location) < LocationContants.constantWeatherRadiusInMeters else {
             return nil
         }
         return currentWeatherInformation

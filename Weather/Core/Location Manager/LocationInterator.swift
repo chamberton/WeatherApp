@@ -9,13 +9,10 @@
 import UIKit
 import CoreLocation
 
-let constantWeatherRadiusInMeters: Double = 15000
-
 class LocationInterator: NSObject {
     private let locationManager = CLLocationManager()
     private(set) var currentLocation: CLLocation?
     public weak var delegate: LocationInteractorDelegate?
-    
     public func requestLocationAuthorizationIfNeeded() {
         locationManager.delegate = self
     
@@ -86,7 +83,7 @@ class LocationInterator: NSObject {
         guard let currentLocation = self.currentLocation else {
             return true
         }
-        return  point.distance(from: currentLocation) > constantWeatherRadiusInMeters
+        return point.distance(from: currentLocation) > LocationContants.constantWeatherRadiusInMeters
     }
 }
 
@@ -98,7 +95,9 @@ extension LocationInterator: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations[0]
+        guard let location = locations.first else {
+            return 
+        }
         if validateLocationChange(location) {
             currentLocation = location
             delegate?.userLocationChanged(location: location)
